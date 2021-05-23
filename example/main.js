@@ -1,1 +1,0 @@
-const selectQueryAll("div")
