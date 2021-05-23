@@ -1,0 +1,31 @@
+*{
+  text-decoration:none;
+}
+html,body{
+  width:100%; height:100%;
+  margin:0; padding:0;
+}
+a{
+  color:#222;
+}
+.text{
+  font-size:50px;
+  color:blue;
+  text-decoration:underline;
+}
+#menu{
+  width:50%; height:10%;
+  outline:1px solid red; 
+}
+#menu>#menuTab{
+  width:100%;
+  clear:both;
+  content:"";
+  display:block;
+}
+#menuTab>li{
+  width:25%; height:10px;
+  line-height:100%;
+  float:left;
+  text-align:center;
+}

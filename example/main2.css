@@ -1,0 +1,115 @@
+.orange+li{
+  color:red;
+}
+/* 선택자 '+' 형제요소 = +가 붙으면 형제요소 중 그 다음 것을 선택하게 된다 */
+
+.orange~li{
+  color:orange;
+}
+/* ~: 틸드 를 붙이게 되면 다음 형제 요소 '모두'를 찾는다 */
+
+.box{
+  width:100px; height:100px;
+  background-color:orange;
+  transition:all 0.5s;
+}
+.box:hover{
+  width:300px;
+  background-color: royalblue;
+}
+.box1:focus{
+  width:300px;
+  background-color: royalblue;
+}
+a:hover{
+  color:red;
+  transition:all 0.6s;
+}
+a:active{
+  color:gold;
+  /* active는 콘텐츠를 누르고 있는 동안 해당 명령으로 변환된다 */
+}
+input{
+  
+}
+input:focus{
+  transition:all 0.3s;
+  background-color: orange;
+  /* focus가 될 수 있는 요소는 HTML대화형으로 input, a, button,label,select 등이 있다. tabinbox속성을 사용한 요소도 가능하다 */
+}
+.fruits span:nth-child(2){
+  color:red;
+}
+.fruits *:nth-child(4){
+  color:yellowgreen;
+}
+.fruits *:nth-child(2n){
+  /* n을 넣게 되면 0부터 카운팅하게된다 (0,1,2,3...) */
+}
+.fruits *:nth-child(2n+1){
+  /* 2*0, 2*1, 2*3과 같이 진행되다가 숫자 1을 더하여 카운팅 */
+}
+.fruits *:nth-child(n+2){
+  /* n은 0부터 카운팅하며 숫자 2를 더하여 최종 카운팅한다 */
+}
+.fruits *:not(span){
+  background-color: aliceblue;
+  /* 선택자(span)을 제외한 나머지 요소를 지정한다 */
+}
+.box2{
+  width:100px;
+  height:100px;
+  background-color: orange;
+}
+.box2::after{
+  content:"";
+  width:30px; 
+  height:30px;
+  display:block;
+  background-color:royalblue;
+  transition:all 0.5s;
+}
+.box2:hover::after{
+  width:100px;
+  background-color: red;
+}
+[disabled]{
+  color:red;
+  /* 속성을 선택하려면 대괄호[]를 입력하여 css 명령을 내려준다 */
+}
+[type]{
+  background-color: cornflowerblue;
+}
+[type="password"]{
+  color:red;
+}
+[data-fruit-name]{
+  color:red;
+}
+.animal{
+  color:red;
+}
+
+.parent{
+  width:200px;
+  height:100px;
+  background-color: orangered;
+}
+.child{
+  width:100px;
+  height:inherit;
+  position:fixed;
+  top:100px;
+  right:100px;
+  background-color: inherit;
+}
+.list li.item{
+  color:red;
+}
+
+div.hello{
+  color:red;
+}
+.hello {
+  color:green;
+}
