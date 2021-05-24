@@ -1,0 +1,249 @@
+.container{
+  width:300px;
+  background-color: royalblue;
+}
+.container .item{
+  border:4px dashed red;
+  background-color: orange;
+}
+.container .item:nth-child(1){
+  width:100px;
+  height:100px;
+}
+.container .item:nth-child(2){
+  width:140px;
+  height:70px;
+  position:relative;
+  top:30px; left:200px;
+}
+.container .item:nth-child(3){
+  width:70px;
+  height:120px;
+}
+
+/* ============================== */
+
+.container01{
+  margin-top:30px;
+  width:300px;
+  background-color: royalblue;
+  position:relative;
+}
+.container01 .item01{
+  width:100px;
+  height:100px;
+  border:4px dashed red;
+  background-color: orange;
+}
+.container01 .item01:nth-child(1){
+  position:relative;
+  z-index: 1;
+}
+.container01 .item01:nth-child(2){
+  position:absolute;
+  top:50px; left:50px;
+}
+.container01 .item01:nth-child(3){
+  z-index: 2; 
+  /* position 속성이 없으면 우선순위에 밀려나서 적용이 되지 않는다 */
+}
+/*
+  position을 사용하게 되면(absolute, fixed : relative는 예외) display 속성이 block으로 적용된다
+*/
+.positionDisplay{
+  /* display:block; */
+  width:100px;
+  height:100px;
+  background-color: orange;
+  /* position:absolute; */
+}
+
+.flex{
+  width:400px;
+  /* height:200px; */
+  margin-top:50px;
+  background-color: royalblue;
+  display:flex;
+  flex-wrap:wrap;
+  /* 수평 정렬을 희망하는 요소의 부모값에 flex를 부여하면 적용*/
+  justify-content:flex-end;
+  align-content:flex-start; 
+  /*
+    align-content는 wrap 상태(줄바꿈이 가능한)여야 하고 빈공간이 있어야 하고 아이템이 2줄 이상이어야만 동작된다
+  */
+}
+.flexItem{
+  width:100px;
+  height:100px;
+  border:3px dashed red;
+  background-color: orange;
+}
+/* 
+flex-container에 속하는 속성
+  display: flex, inline-flex(인라인 요소와 같음)
+
+  flex-direction : 축을 설정함 / row(좌->우 : 기본값), row-reverse(우->좌), column(위->아래),-reverse(아래->위)
+
+  flex-wrap: nowrap(기본값), wrap (요소를 줄바꿈 처리를 할 것인지-칸이 모자라서 컨테이너 밖으로 넘치려는 것을 다음 줄로 넘기는 것)
+
+  justify-content: flex-start, flex-end, center (주축의 정렬 방법을 뜻함. 순서대로 시작점, 끝점, 가운데 정렬)
+
+  align-content: stretch, flex-start, flex-end, center(수직 정렬에 대한 방법)
+
+  align-items: 교차 축의 한 줄 정렬 / align-content는 최소 2줄이상 존재할 때 사용가능함 
+  stretch, flex-start, flex-end, center, baseline(문자 기준선에 정렬)
+
+*/
+.flexCont{
+  margin-top:50px;
+  width:500px; 
+  height:300px;
+  background-color: royalblue;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.flexCont .flexAlign{
+  width:100px;
+  height:100px;
+  border:3px dashed red;
+  background-color: orange;
+}
+
+.flexCont01{
+  margin-top:50px;
+  width:500px;
+  height:300px;
+  background-color: royalblue;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.flexCont01 .flexitems{
+  width:100px;
+  height:100px;
+  border:3px dashed red;
+  background-color: orange;
+  flex-grow:1; /* item의 비율이 1의 비율로 늘어난다 */
+  flex-basis:0;
+}
+.flexCont01 .flexitems:nth-child(3){
+  flex-grow:2;
+}
+/* 
+  flex item의 정렬
+
+  order : 숫자 입력(음수도 입력 가능). 숫자가 작을수록 먼저 정렬된다
+  각 아이템의 숫자를 입력해 주면 해당 숫자대로 아이템이 정렬된다 
+
+  flex-grow : 아이템의 증가 너비 비율을 지정한다
+  숫자를 입력해 주면 된다(기본값은 0으로 지정되어 있음)
+
+  flex-shrink : 감소 너비 비율 (숫자를 입력하여 적용한다)
+  기본값은 1로 지정되어 있다(이로 인해 부모의 크기가 줄어들면 같이 줄어들 수도 있다 - 만약 정비율의 오브제를 넣었을 경우에는 비율에 따라서 같이 찌그러진다
+  그리하여 0으로 지정하여 찌그러지게 하지 않게 하는 경우가 있음
+
+  flex-basis: 공간을 배분하기 전 기본 너비(콘텐츠가 차지하는 
+  기본값은 auto : 요소의 content 너비
+  px,em,rem 등 단위로 지정한다
+  
+*/
+
+.transition{
+  margin-top:50px;
+  width:500px;
+  height:500px;
+  background-color: orange;
+}
+.transition .hover01{
+  width:100px;
+  height:100px;
+  background-color: royalblue;
+  transition:1s .1s; /*지속시간, 대기시간 */
+  /*
+    transition-property: all, 속성이름(예:width)
+    전환 효과 (특정 속성을 명시하여 사용할 때 속성 이름을 지정한다
+    transition-duration: 초(s)를 입력해 준다
+    transition-timing-function: 타이밍 함수를 지정한다(ease)
+      ease(느리게-빠르게-느리게), linear(일정하게)
+      ease-in(느리게-빠르게), ease-out(빠르게-느리게)
+      ease-in-out(느리게-빠르게-느리게)
+    transition-delay: 초(s)를 입력해 준다
+  */
+}
+.transition .hover01:active{
+  width:300px;
+  background-color: aqua;
+}
+
+.transform{
+ margin-top:50px;
+ margin-left:50px;
+ width:100px;
+ height:100px;
+ background-color: royalblue;
+}
+.transform .contentTF{
+  width:100px;
+  height:100px;
+  background-color:orange;
+  transform:perspective(500px) rotateX(45deg) translateX(100px);
+}
+
+/*
+  transform: 변환함수 1, 2, 3 ... (추가 가능함)
+  transform: 원근법 이동 크기 회전 기울임;
+  
+  2d 변환함수 / 3d 변환함수로 크게 나뉘어질 수 있음
+
+  2d 변환함수
+  translate(x,y) 이동(x,y축) - px단위로 사용한다
+  translateX, translateY
+  scale(x,y) 크기(x축, y축) - 단위는 별도로 존재하지 않음
+  rotate(degree-deg) 회전한다
+  skewX(x), skewY(y) 기울임 x축, y축을 의미함
+
+  3d 변환함수
+  translate3d(x,y,z), translateZ(z), scaleZ(z), scale3d(x,y,z)
+  rotateX(x), rotateY(y) : 회전축
+  perspective(n) 원근법 (거리) -px단위로 사용한다
+  *원근법 함수는 가장 앞에 작성해야 한다
+  
+*/
+
+.perspective{
+  margin-top:50px;
+  width:300px;
+  height:100px;
+  background-color: orange;
+  perspective: 500px; 
+}
+.perspective .perspectCont{
+  width:100px;
+  height:100px;
+  background-color: royalblue;
+  font-size:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  transform:rotateY(180deg);
+  backface-visibility:hidden;
+}
+
+
+
+/*
+  perspective 하위 요소를 관찰하는 원근 거를 지정함
+  px로 단위 지정함 (css 속성으로 사용함)
+  perspective(CSS속성)는 관찰 대상의 부모에 넣어서 사용
+  perspective(transform)에는 직접적인 관찰 대상에 넣는다
+  
+  perspective-origin, transform-origin (기준점 설정)
+  perspective 속성(CSS)으로 넣는 것은 부모를 기준으로 변경된다
+  transform에 들어가는 perspective는 해당 오브제를 기준으로 변경된다
+
+  backface-visibility : 3d 변환으로 회전된 요소의 뒷면 숨김 여부
+  visible이 기본값, hidden이 추가값
+
+
+*/
